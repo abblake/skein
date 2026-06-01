@@ -1,10 +1,12 @@
 # Skein
 
-> A lightweight companion dashboard for Claude Code that makes it safe to close a terminal window without losing the context that was loaded into it.
+> A lightweight companion dashboard for Claude Code, with two surfaces: a parking lot that makes it safe to close a window without losing your work, and a per-session notepad that gives every loose thought a home.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## The problem
+Heavy Claude Code use creates two everyday frictions. Skein solves each with its own surface — they're co-equal, not one-plus-an-afterthought.
+
+## Problem 1: you can't close a window
 
 You have ten Claude Code windows open. You can't bring yourself to close any of them.
 
@@ -12,13 +14,19 @@ Each one is holding a thread of work — a context you built up over an hour of 
 
 Here's the thing: that context isn't actually in the window. Claude Code already persists every session to disk. The window-hoarding is a workaround for missing **resume infrastructure** — not a real requirement. You're keeping windows open because nothing else makes it safe to close them.
 
-## How Skein fixes it
+**Skein's fix — the parking lot.** Park a thread and it keeps its session; pick it back up later with one click, exactly where you left off. Once resuming is reliable, closing a window stops being scary. Skein runs **alongside** your native terminal — it doesn't embed or replace it — watching the sessions you already have open and capturing each as a card. At a glance you see which windows need you, what each parked thread accomplished, and which thread is the highest-leverage one to resume next.
 
-Skein is the **trusted parking lot**. Park a thread and it keeps its session; pick it back up later with one click, exactly where you left off. Once resuming is reliable, closing a window stops being scary.
+## Problem 2: your thoughts have nowhere to go
 
-It runs **alongside** your native terminal — it doesn't embed or replace it. It watches the Claude Code sessions you already have open, captures each as a card you can put down and pick back up, and enriches it with an at-a-glance summary, an open-threads view, and per-session notes. At a glance you can see which windows need you, what each parked thread accomplished, and which thread is the highest-leverage one to resume next.
+While a session is running, you constantly have fragments with no home. You're waiting on the model and an idea hits that isn't ready to send as a prompt yet. You have a command, a snippet, or a note you want to stash *for this thread* — and there's nowhere to put it.
 
-The result: persistent context, session coherence, and multi-project visibility — without touching your terminal.
+So it ends up in the wrong place: dumped into the prompt box prematurely (where it just gets sent to the model), scattered into a random scratch file, or simply lost. The prompt box sends to the model; a global notes app loses the connection to *this* session. A thought tied to a specific thread needs to live with that thread.
+
+**Skein's fix — the notepad.** Every session gets its own notepad that lives with the thread. A timestamped **Log** mode — type, press Enter, the server stamps the time — is built for quick captures while you wait, and a **Freeform** mode handles longer notes. It's backed by a real Obsidian vault written into the project's own folder, so your notes are plain files you own, not entries locked inside the app.
+
+---
+
+Together, the two surfaces give you persistent context, session coherence, and multi-project visibility — without touching your terminal.
 
 > **Screenshot coming soon** — a dashboard screenshot will live at `docs/screenshot.png`.
 
