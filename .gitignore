@@ -1,0 +1,102 @@
+# ─────────────────────────────────────────────────────────────
+# Skein .gitignore — Bun + Vite + TypeScript (React/Hono)
+# ─────────────────────────────────────────────────────────────
+
+# Dependencies (102M — never commit; restored via `bun install`)
+node_modules/
+.pnp
+.pnp.js
+
+# Bun
+# NOTE: bun.lock (the lockfile) IS committed — see Plans/release-git-setup.md.
+# We only ignore Bun's runtime/cache artifacts, never the lockfile.
+.bun/
+bun-debug.log*
+
+# Build output / bundler
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# Vite cache & dev artifacts
+.vite/
+node_modules/.vite/
+.vite-inspect/
+
+# Environment / secrets (keep .env.example tracked)
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.production.local
+.env.test.local
+!.env.example
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+skein-dev.log
+
+# Skein in-directory Obsidian vault (#31) — per-session scratchpads
+# written into a session's own cwd. Self-ignored via skein/.gitignore,
+# but guarded here too in case Skein ever runs against its own repo.
+skein/
+**/skein/notepad/
+**/skein/.obsidian/
+
+# Local-only Claude Code / agent config + bundled PAI skills.
+# The ENTIRE .claude/ and .agents/ trees are excluded: they hold the owner's
+# personal PAI environment (skills, settings, absolute home paths, machine
+# state) and are unrelated to Skein's code. Skein reads the *user's* ~/.claude/
+# at runtime — it does not ship one.
+.claude/
+.agents/
+# Lockfile for externally-sourced skills that live under the excluded
+# .claude/.agents trees — orphaned without them, so not shipped.
+skills-lock.json
+
+# Internal build/dev artifacts — not shipped publicly (contain owner-specific
+# project names, TELOS goal mappings, session UUIDs, and the build log).
+# Kept locally; excluded from the public repo per the release decision.
+ISA.md
+CLAUDE.md
+SPEC.md
+Plans/
+
+# Editor / IDE
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+# .vscode/ — uncomment to ignore; left tracked so shared workspace
+# settings (recommended extensions, debug configs) can ship with the repo.
+# .vscode/
+
+# OS cruft
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Test / coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Misc local artifacts
+*.local
+.cache/
+tmp/
+temp/
