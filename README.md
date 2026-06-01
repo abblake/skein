@@ -1,10 +1,24 @@
 # Skein
 
-> A lightweight companion dashboard for Claude Code that gives you persistent context, session coherence, and multi-project visibility — without touching your terminal.
-
-Skein runs **alongside** your native terminal. It watches the Claude Code sessions you already have open, captures each one as a card you can put down and pick back up, and enriches it with an at-a-glance summary, an open-threads view, and per-session notes. The goal is simple: make it safe to close a terminal window without losing the context that was loaded into it.
+> A lightweight companion dashboard for Claude Code that makes it safe to close a terminal window without losing the context that was loaded into it.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+## The problem
+
+You have ten Claude Code windows open. You can't bring yourself to close any of them.
+
+Each one is holding a thread of work — a context you built up over an hour of back-and-forth — and closing the window *feels* like throwing that context away. So they stack up. The pile becomes your working memory: a wall of half-finished terminals you're afraid to touch, with no overview of what's actually in flight, which window needs you next, or what any given session was even doing.
+
+Here's the thing: that context isn't actually in the window. Claude Code already persists every session to disk. The window-hoarding is a workaround for missing **resume infrastructure** — not a real requirement. You're keeping windows open because nothing else makes it safe to close them.
+
+## How Skein fixes it
+
+Skein is the **trusted parking lot**. Park a thread and it keeps its session; pick it back up later with one click, exactly where you left off. Once resuming is reliable, closing a window stops being scary.
+
+It runs **alongside** your native terminal — it doesn't embed or replace it. It watches the Claude Code sessions you already have open, captures each as a card you can put down and pick back up, and enriches it with an at-a-glance summary, an open-threads view, and per-session notes. At a glance you can see which windows need you, what each parked thread accomplished, and which thread is the highest-leverage one to resume next.
+
+The result: persistent context, session coherence, and multi-project visibility — without touching your terminal.
 
 > **Screenshot coming soon** — a dashboard screenshot will live at `docs/screenshot.png`.
 
